@@ -1,10 +1,32 @@
-const current: [number, number] = [0, 0];
-const target: [number, number] = [4, 5];
-const dx = target[0] - current[0];
-const dy = target[1] - current[1];
-console.log(`오른쪽으로 ${dx} 위쪽으로 ${dy} 만큼 이동!`);
+enum Size {
+  S = "S",
+  M = "M",
+  L = "L",
+  XL = "XL",
+}
 
-const items: string[] = [];
-items.push("갑옷");
-items.push("빨간 물약");
-console.log(`${items.join(", ")}을/를 획득했다!`);
+let product: {
+  id: string;
+  name: string;
+  price: number;
+  membersOnly?: boolean;
+  sizes: Size[];
+} = {
+  id: "c001",
+  name: "코드잇 블랙 후디",
+  price: 129000,
+  sizes: [Size.S, Size.M, Size.XL],
+};
+
+function findProduct(size?: Size) {
+  if (!size) {
+    console.log("전체 사이즈로 검색");
+    return;
+  }
+
+  console.log("특정 사이즈로 검색");
+}
+
+findProduct(Size.S);
+findProduct(Size.L);
+findProduct();
