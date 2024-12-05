@@ -1,24 +1,26 @@
 "use strict";
-var Size;
-(function (Size) {
-    Size["S"] = "S";
-    Size["M"] = "M";
-    Size["L"] = "L";
-    Size["XL"] = "XL";
-})(Size || (Size = {}));
-let product = {
-    id: "c001",
-    name: "코드잇 블랙 후디",
-    price: 129000,
-    sizes: [Size.S, Size.M, Size.XL],
-};
-function findProduct(size) {
-    if (!size) {
-        console.log("전체 사이즈로 검색");
-        return;
+function printEquipment(equipment) {
+    console.log(`이름: ${equipment.name}`);
+    if ("attack" in equipment) {
+        console.log(`이 장비는 공격력을 ${equipment.attack} 증가 시킵니다.`);
     }
-    console.log("특정 사이즈로 검색");
+    if ("defence" in equipment) {
+        console.log(`이 장비는 방어력을 ${equipment.defence} 증가 시킵니다.`);
+    }
+    // 무기인 경우 아래 코드를 실행합니다.
+    // 방어구인 경우 아래 코드를 실행합니다.
 }
-findProduct(Size.S);
-findProduct(Size.L);
-findProduct();
+const item1 = {
+    id: "w001",
+    name: "전쟁 도끼",
+    price: 100,
+    attack: 15,
+};
+const item2 = {
+    id: "a001",
+    name: "사슬 갑옷",
+    price: 200,
+    defence: 52,
+};
+printEquipment(item1);
+printEquipment(item2);
